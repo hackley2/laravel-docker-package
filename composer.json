@@ -10,6 +10,6 @@
     ],
     "require": {},
     "autoload": {
-        "psr-4": { "Hackley2\\": "src/" }
-    },
+        "psr-0": { "Hackley2\\LaravelDockerPackage": "/" }
+    }
 }
