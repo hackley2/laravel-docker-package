@@ -1,9 +1,7 @@
 version: '3.0'
 services:
   phpserver:
-    build:
-      context: .docker
-      dockerfile: php
+    image: hackley2/php-apache
     volumes:
       - ./:/var/www/html
       - .docker/sites-enabled/:/etc/apache2/sites-enabled

@@ -8,5 +8,8 @@
             "email": "andrew@andrewhackley.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": { "Hackley2\\": "src/" }
+    },
 }

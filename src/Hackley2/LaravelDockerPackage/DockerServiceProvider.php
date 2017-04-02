@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Hackley2\LaravelDockerPackage;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -14,8 +14,7 @@ class DockerServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/dist/docker-compose.yml' => base_path(),
-            __DIR__.'/dist/.docker/' => base_path('.docker'),
+            __DIR__.'/dist/' => base_path(),
         ], 'docker');
     }
 
