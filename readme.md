@@ -82,7 +82,7 @@ docker-compose up
 docker-compose stop
 ```
 
-You shouldn't actually have much reason to connect to your local development server's terminal, but if you need to,
+If you need to connect to your local development server's terminal for something like db migrations, then
 get the list of the running docker containers by running `docker ps` to determine the name of your PHP server
 and then run `docker exec -i -t <name_of_container> /bin/bash`. Otherwise, you can always run the command in 
 step #2 to get a bash prompt capable of running PHP related commands.
