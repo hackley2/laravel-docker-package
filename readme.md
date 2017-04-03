@@ -26,7 +26,7 @@ https://msdn.microsoft.com/en-us/commandline/wsl/install_guide .*
      the docker container's terminal that we get as a result of this command here in step #2)*
 ```bash
 # Run from host machine to access a php terminal
-docker run -ti --rm -v $PWD:/app hackley2/php-apache bash
+docker run -ti --rm -v $PWD:/var/www/html hackley2/php-apache bash
 ``` 
 3. Install Laravel into a new folder called "blog"
 ```bash
@@ -45,7 +45,7 @@ required for our development environment
 
 5. Install this repo as a composer package
 ```bash
-composer require --dev hackley2/laravel-docker-package
+composer require hackley2/laravel-docker-package
 ```
 6. Register the DockerServiceProvider with Laravel by adding the following line to
    the 'providers' array in your config/app.php file 
