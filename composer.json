@@ -10,7 +10,7 @@
     ],
     "require": {},
     "autoload": {
-        "psr-0": { "Hackley2\\LaravelDockerPackage\\": "src/" }
+        "psr-0": { "Hackley2\\LaravelDockerPackage\\": "src/Hackley2/LaravelDockerPackage" }
     },
     "license": "MIT"
 }
