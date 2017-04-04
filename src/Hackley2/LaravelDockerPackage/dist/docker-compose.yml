@@ -11,10 +11,11 @@ services:
       - "80:80"
 
   mysqlserver:
-    image: mysql
+    image: mariadb
     environment:
       MYSQL_DATABASE: DB_DATABASE
-      MYSQL_ROOT_PASSWORD: DB_PASSWORD
+      MYSQL_USER: DB_USERNAME
+      MYSQL_PASSWORD: DB_PASSWORD
     ports:
       - "33061:3306"
 
