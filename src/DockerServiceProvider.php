@@ -14,7 +14,7 @@ class DockerServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/dist/' => base_path(),
+            __DIR__ . '/dist/' => base_path(),
         ], 'docker');
     }
 
