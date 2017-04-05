@@ -85,7 +85,7 @@ Notes:
 
 ```bash
 # Start your docker server containers
-docker-compose up
+docker-compose up -d
 ```
 
 ```bash
