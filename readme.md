@@ -24,18 +24,18 @@ https://msdn.microsoft.com/en-us/commandline/wsl/install_guide .*
    machine to get access to a bash prompt that has PHP and composer. 
    *(Unless otherwise indicated, all commands step #3 through step #8 should be ran from within 
      the docker container's terminal that we get as a result of this command here in step #2)*
-```bash
-# Run from host machine to access a php terminal
-docker run -ti --rm -v $PWD:/var/www/html hackley2/php-apache bash
-``` 
+    ```bash
+    # Run from host machine to access a php terminal
+    docker run -ti --rm -v $PWD:/var/www/html hackley2/php-apache bash
+    ``` 
 3. Install Laravel into a new folder called "blog"
-```bash
-composer create-project --prefer-dist laravel/laravel blog
-```
+    ```bash
+    composer create-project --prefer-dist laravel/laravel blog
+    ```
 4. Change directory into the new blog folder 
-```bash
-cd blog
-```
+    ```bash
+    cd blog
+    ```
 
 ## Set up Docker with an existing Laravel Project:
 
@@ -44,23 +44,23 @@ the composer bash prompt we opened up in step 2 we can set up the Docker files
 required for our development environment
 
 5. Install this repo as a composer package
-```bash
-composer require hackley2/laravel-docker-package
-```
+    ```bash
+    composer require hackley2/laravel-docker-package
+    ```
 6. Register the DockerServiceProvider with Laravel by adding the following line to
    the 'providers' array in your config/app.php file 
-```php
-// PHP code to enter in config/app.php
-Hackley2\LaravelDockerPackage\DockerServiceProvider::class,
-```
+    ```php
+    // PHP code to enter in config/app.php
+    Hackley2\LaravelDockerPackage\DockerServiceProvider::class,
+    ```
 7. Publish the .docker folder and docker-compose.yml file to your project
-```bash
-php artisan vendor:publish --tag=docker
-```
+    ```bash
+    php artisan vendor:publish --tag=docker
+    ```
 8. Exit the composer container that we've been performing commands in that we started in step #2
-```bash
-exit
-```
+    ```bash
+    exit
+    ```
 
 ## Use Docker
 
@@ -69,17 +69,14 @@ Now that the docker files are all in place, follow these steps to spin up and ma
 1. Setup your database settings in you .env file
 2. Set the DB_HOST in your .env file to "mysql"
 3. Spin up your Docker LAMP stack:
-
-```bash
-# Start your docker server containers
-docker-compose up -d
-```
-
-```bash
-# Stop your docker server containers
-docker-compose stop
-```
-
+    ```bash
+    # Start your docker server containers
+    docker-compose up -d
+    ```
+    ```bash
+    # Stop your docker server containers
+    docker-compose stop
+    ```
 4. Peruse the Notes:
     * *The DB settings you put in your .env file before you build your docker-compose environment
        for the first time will cause the MySQL DB's name, user, and password to be set to what your .env
