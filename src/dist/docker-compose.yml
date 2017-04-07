@@ -1,21 +1,22 @@
 version: '3.0'
 services:
-  phpserver:
+  php:
     image: hackley2/php-apache
     volumes:
       - ./:/var/www/html
       - .docker/sites-enabled/:/etc/apache2/sites-enabled
     links:
-      - mysqlserver
+      - mysql
     ports:
       - "80:80"
 
-  mysqlserver:
-    image: mariadb
+  mysql:
+    image: mysql
     environment:
-      MYSQL_DATABASE: DB_DATABASE
-      MYSQL_USER: DB_USERNAME
-      MYSQL_PASSWORD: DB_PASSWORD
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
     ports:
       - "33061:3306"
 

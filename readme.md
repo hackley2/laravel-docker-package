@@ -2,7 +2,7 @@
 <br>
 
 This Laravel Package helps get you up and running with a docker development environment in no time.
-No need to bog your host computer down with PHP, MYSQL, or Apache.
+No need to bog your host computer down with installing a LAMP stack directly.
 
 ## Creating a new Laravel Project:
 
@@ -64,24 +64,11 @@ exit
 
 ## Use Docker
 
-Now that the docker files are all in place, use these commands to manage you Docker server.
+Now that the docker files are all in place, follow these steps to spin up and manage your Docker LAMP stack:
 
-Notes:
-* *The DB settings you put in your .env file before you build your docker-compose environment
-   for the first time will cause the MySQL DB's name, user, and password to be set to what your .env
-   file indicates.*
-* *If you delete the MySQL container, your DB's data will be lost. There are plenty of ways around
-   this. See https://hub.docker.com/_/mariadb/ for more details.*
-* *To connect directly to the MySQL server from your host machine, use 127.0.0.1:22061 as the 
-   host IP address*
-* *If you need to connect to your local development server's terminal for something like db migrations, then
-   get the list of the running docker containers by running `docker ps` to determine the name of your "phpserver"
-   container and then run `docker exec -i -t <name_of_container> /bin/bash`. Otherwise, you can always run the command in 
-   step #2 to get a bash prompt capable of running PHP related commands.*
-* *All below commands should be ran from the root folder of you Laravel project*
-* *Once the docker server containers have been started, you can access your Laravel 
-   app by pointing your browser to 127.0.0.1*
-
+1. Setup your database settings in you .env file
+2. Set the DB_HOST in your .env file to "mysql"
+3. Spin up your Docker LAMP stack:
 
 ```bash
 # Start your docker server containers
@@ -89,8 +76,34 @@ docker-compose up -d
 ```
 
 ```bash
-# stop your docker server containers
+# Stop your docker server containers
 docker-compose stop
+```
+
+4. Peruse the Notes:
+    * *The DB settings you put in your .env file before you build your docker-compose environment
+       for the first time will cause the MySQL DB's name, user, and password to be set to what your .env
+       file indicates.*
+    * *If you delete the MySQL container, your DB's data will be lost. There are plenty of ways around
+       this. See https://hub.docker.com/_/mariadb/ for more details.*
+    * *If you need to connect to your local development server's terminal for something like db migrations, then
+       get the list of the running docker containers by running `docker ps` to determine the name of your "phpserver"
+       container and then run `docker exec -i -t <name_of_container> /bin/bash`. Otherwise, you can always run the command in 
+       step #2 to get a bash prompt capable of running PHP related commands.*
+    * *All below commands should be ran from the root folder of you Laravel project*
+    * *Once the docker server containers have been started, you can access your Laravel 
+       app by pointing your browser to 127.0.0.1*
+
+
+# Connect to MySQL
+
+To connect to your mysql server, use this command in your terminal, or enter this commands credentials into your favorite
+database management program. Use the database password set in your .env file.
+
+```bash
+# Replace <DB_USERNAME> with the value defined in your .env file
+# Use the password defined in your .env file
+mysql -u <DB_USERNAME> -p -h 127.0.0.1 -P 33061
 ```
 
 
