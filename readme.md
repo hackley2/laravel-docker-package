@@ -53,7 +53,7 @@ required for our development environment
     // PHP code to enter in config/app.php
     Hackley2\LaravelDockerPackage\DockerServiceProvider::class,
     ```
-7. Publish the .docker folder and docker-compose.yml file to your project
+7. Publish the docker folder and docker-compose.yml file to your project
     ```bash
     php artisan vendor:publish --tag=docker
     ```
