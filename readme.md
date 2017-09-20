@@ -26,7 +26,7 @@ https://msdn.microsoft.com/en-us/commandline/wsl/install_guide .*
      the docker container's terminal that we get as a result of this command here in step #2)*
     ```bash
     # Run from host machine to access a php terminal
-    docker run -ti --rm -v $PWD:/var/www/html hackley2/php-apache bash
+    docker run -ti --rm -u $(id -u):$(id -g) -v $PWD:/var/www/html hackley2/php-apache bash
     ``` 
 3. Install Laravel into a new folder called "blog"
     ```bash
@@ -78,6 +78,8 @@ Now that the docker files are all in place, follow these steps to spin up and ma
     docker-compose stop
     ```
 4. Peruse the Notes:
+    * *All below commands should be ran from the root folder of you Laravel project*
+    * *All below commands should be ran from the root folder of you Laravel project*
     * *The DB settings you put in your .env file before you build your docker-compose environment
        for the first time will cause the MySQL DB's name, user, and password to be set to what your .env
        file indicates.*
@@ -85,12 +87,26 @@ Now that the docker files are all in place, follow these steps to spin up and ma
        this. See https://hub.docker.com/_/mariadb/ for more details.*
     * *If you need to connect to your local development server's terminal for something like db migrations, then
        get the list of the running docker containers by running `docker ps` to determine the name of your "phpserver"
-       container and then run `docker exec -i -t <name_of_container> /bin/bash`. Otherwise, you can always run the command in 
-       step #2 to get a bash prompt capable of running PHP related commands.*
-    * *All below commands should be ran from the root folder of you Laravel project*
+       container and then use the `./docker-exec.sh` script file (see below for more details).*
     * *Once the docker server containers have been started, you can access your Laravel 
        app by pointing your browser to 127.0.0.1*
 
+# Running a command on one of your docker containers
+
+If you need to run a command in one of your docker containers (such as
+getting access to your docker container's terminal) use the following command:
+
+```bash
+# Run command on one docker container
+docker exec -ti -u $(id -u):$(id -g) <docker-container-name> <command>
+```
+
+If you find that command to be too cumbersome, you can instead use the `docker-exec.sh`
+script as follows:
+
+```bash
+./docker-exec.sh <container-name> <command>
+```
 
 # Connect to MySQL
 
