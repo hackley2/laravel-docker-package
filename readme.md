@@ -14,7 +14,7 @@ you may not have PHP installed on your host computer).
 NOTES: 
 *The following commands assume you already have docker CE installed 
 https://docs.docker.com/engine/installation
-and that your host computer is running Linux or OSX. If you're running Windows, 
+and that your host computer is running Linux or macOS. If you're running Windows, 
 you will need to modify the following commands or be using Microsoft's 
 Bash on Windows 
 https://msdn.microsoft.com/en-us/commandline/wsl/install_guide .*
@@ -78,8 +78,7 @@ Now that the docker files are all in place, follow these steps to spin up and ma
     docker-compose stop
     ```
 4. Peruse the Notes:
-    * *All below commands should be ran from the root folder of you Laravel project*
-    * *All below commands should be ran from the root folder of you Laravel project*
+    * *All below commands should be ran from the root folder of your Laravel project*
     * *The DB settings you put in your .env file before you build your docker-compose environment
        for the first time will cause the MySQL DB's name, user, and password to be set to what your .env
        file indicates.*
