@@ -66,7 +66,7 @@ required for our development environment
 
 Now that the docker files are all in place, follow these steps to spin up and manage your Docker LAMP stack:
 
-1. Setup your database settings in you .env file
+1. Setup your database settings in your .env file
 2. Set the DB_HOST in your .env file to "mysql"
 3. Spin up your Docker LAMP stack:
     ```bash
@@ -95,8 +95,14 @@ Now that the docker files are all in place, follow these steps to spin up and ma
 If you need to run a command in one of your docker containers (such as
 getting access to your docker container's terminal) use the following command:
 
+
 ```bash
-# Run command on one docker container
+# Run command on one docker container (from MacOS host machine)
+docker exec -ti <docker-container-name> <command>
+```
+
+```bash
+# Run command on one docker container (from Linux host machine)
 docker exec -ti -u $(id -u):$(id -g) <docker-container-name> <command>
 ```
 
