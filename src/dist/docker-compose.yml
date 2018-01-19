@@ -4,7 +4,7 @@ services:
     image: hackley2/php-apache
     volumes:
       - ./:/var/www/html
-      - docker/sites-enabled/:/etc/apache2/sites-enabled
+      - ./docker/sites-enabled/:/etc/apache2/sites-enabled
     links:
       - mysql
     ports:
